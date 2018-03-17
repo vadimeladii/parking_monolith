@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+#Datasource Configuration
+  datasource:
+    url: jdbc:postgresql://localhost:5432/parking_monolith
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+# Hibernate properties
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+#Flyway Sql Migration
+  flyway:
+    url: jdbc:postgresql://localhost:5432/parking_monolith
+    user: postgres
+    password: postgres
