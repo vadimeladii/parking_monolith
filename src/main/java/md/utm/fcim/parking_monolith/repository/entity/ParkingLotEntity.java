@@ -19,5 +19,5 @@ public class ParkingLotEntity {
 
     private Integer totalPlaces;
 
-    private Integer available_places;
+    private Integer availablePlaces;
 }
