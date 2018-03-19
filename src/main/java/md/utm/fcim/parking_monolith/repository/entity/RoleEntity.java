@@ -8,17 +8,13 @@ import javax.persistence.*;
  * Created by veladii on 03/18/2018
  */
 @Entity
-@Table(name = "parking_lot")
+@Table(name = "role")
 @Data
-public class ParkingLotEntity {
+public class RoleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idParking;
+    private Long idRole;
 
-    private String name;
-
-    private Integer totalPlaces;
-
-    private Integer availablePlaces;
+    private String type;
 }

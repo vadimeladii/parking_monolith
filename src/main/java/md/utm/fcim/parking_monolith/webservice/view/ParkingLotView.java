@@ -5,6 +5,9 @@ import lombok.Setter;
 
 import java.io.Serializable;
 
+/**
+ * Created by veladii on 03/17/2018
+ */
 @Getter
 @Setter
 public class ParkingLotView implements Serializable {

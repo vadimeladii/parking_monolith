@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
+/**
+ * Created by veladii on 03/17/2018
+ */
 @RequestMapping(value = "/parking-lot")
 public interface ParkingLotController {
 

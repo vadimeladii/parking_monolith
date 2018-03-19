@@ -5,8 +5,12 @@ import md.utm.fcim.parking_monolith.business.dto.ParkingLot;
 import md.utm.fcim.parking_monolith.repository.entity.ParkingLotEntity;
 import org.springframework.stereotype.Component;
 
+/**
+ * Created by veladii on 03/17/2018
+ */
 @Component
 public class ParkingLotConverter extends Converter<ParkingLot, ParkingLotEntity> {
+
     @Override
     protected ParkingLotEntity doForward(ParkingLot dto) {
         ParkingLotEntity entity = new ParkingLotEntity();

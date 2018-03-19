@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Created by veladii on 03/17/2018
+ */
 @RestController
 @RequiredArgsConstructor
 public class ParkingLotControllerImpl implements ParkingLotController {

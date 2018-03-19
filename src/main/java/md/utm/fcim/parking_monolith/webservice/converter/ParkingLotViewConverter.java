@@ -5,6 +5,9 @@ import md.utm.fcim.parking_monolith.business.dto.ParkingLot;
 import md.utm.fcim.parking_monolith.webservice.view.ParkingLotView;
 import org.springframework.stereotype.Component;
 
+/**
+ * Created by veladii on 03/17/2018
+ */
 @Component
 public class ParkingLotViewConverter extends Converter<ParkingLotView, ParkingLot> {
 
