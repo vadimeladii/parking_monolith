@@ -1,0 +1,35 @@
+sudo:
+  required
+
+services:
+  - docker
+
+language: java
+
+jdk:
+  - oraclejdk8
+
+os:
+  - linux
+
+env:
+  global:
+    - COMMIT=${TRAVIS_COMMIT::7}
+
+branches:
+  only:
+    - master
+
+after_success:
+
+   #LOGIN
+  - docker login -u $D_USER -p $D_PASS
+
+   #TAG
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+
+   #PARKING_MONOLITH
+  - export PARKING_MONOLITH=vadimeladii7/pakring_monolith
+  - docker build -t PARKING_MONOLITH:$COMMIT ./
+  - docker tag PARKING_MONOLITH:$COMMIT PARKING_MONOLITH:$TAG
+  - docker push PARKING_MONOLITH

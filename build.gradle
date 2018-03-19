@@ -22,6 +22,10 @@ repositories {
     mavenCentral()
 }
 
+jar {
+    archiveName 'parking_monolith.jar'
+}
+
 dependencies {
 //    Spring boot starter
     compile('org.springframework.boot:spring-boot-starter-security')
