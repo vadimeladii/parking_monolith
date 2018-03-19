@@ -1,25 +1,21 @@
 package md.utm.fcim.parking_monolith.webservice;
 
-import md.utm.fcim.parking_monolith.repository.ParkinLotRepository;
-import md.utm.fcim.parking_monolith.repository.entity.ParkingLotEntity;
-import org.springframework.beans.factory.annotation.Autowired;
+import md.utm.fcim.parking_monolith.webservice.view.ParkingLotView;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+/**
+ * Created by veladii on 03/17/2018
+ */
 @RequestMapping(value = "/parking-lot")
-public class ParkingLotController {
-
-    @Autowired
-    private ParkinLotRepository repository;
+public interface ParkingLotController {
 
     @RequestMapping(method = RequestMethod.GET)
-    @ResponseBody
-    public List<ParkingLotEntity> greeting() {
-        return repository.findAll();
-    }
+    List<ParkingLotView> retrieve();
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    ParkingLotView retrieveById(@PathVariable("id") Long id);
 }

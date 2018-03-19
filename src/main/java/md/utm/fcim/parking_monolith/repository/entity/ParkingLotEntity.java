@@ -1,23 +1,20 @@
 package md.utm.fcim.parking_monolith.repository.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.*;
 
+/**
+ * Created by veladii on 03/18/2018
+ */
 @Entity
 @Table(name = "parking_lot")
-@Getter
-@Setter
-public class ParkingLotEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idParking;
+@Data
+public class ParkingLotEntity extends AbstractEntity {
 
     private String name;
 
     private Integer totalPlaces;
 
-    private Integer available_places;
+    private Integer availablePlaces;
 }

@@ -22,6 +22,10 @@ repositories {
     mavenCentral()
 }
 
+jar {
+    archiveName 'parking_monolith.jar'
+}
+
 dependencies {
 //    Spring boot starter
     compile('org.springframework.boot:spring-boot-starter-security')
@@ -43,4 +47,7 @@ dependencies {
 //    Test
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('org.springframework.security:spring-security-test')
+
+//    JWT
+    compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.7.0'
 }
