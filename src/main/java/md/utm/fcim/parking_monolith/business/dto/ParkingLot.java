@@ -8,9 +8,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class ParkingLot {
-
-    private Long idParking;
+public class ParkingLot extends AbstractDto {
 
     private String name;
 

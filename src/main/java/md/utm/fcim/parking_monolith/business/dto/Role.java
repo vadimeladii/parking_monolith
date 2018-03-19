@@ -9,9 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
  */
 @Getter
 @Setter
-public class Role implements GrantedAuthority {
-
-    private Long idRole;
+public class Role extends AbstractDto implements GrantedAuthority {
 
     private String type;
 

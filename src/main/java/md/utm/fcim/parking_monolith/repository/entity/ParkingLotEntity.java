@@ -10,11 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "parking_lot")
 @Data
-public class ParkingLotEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idParking;
+public class ParkingLotEntity extends AbstractEntity {
 
     private String name;
 

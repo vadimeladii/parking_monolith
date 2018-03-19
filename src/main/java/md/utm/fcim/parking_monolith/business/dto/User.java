@@ -11,9 +11,7 @@ import java.util.Set;
  */
 @Getter
 @Setter
-public class User {
-
-    private Long idUser;
+public class User extends AbstractDto {
 
     private String username;
 

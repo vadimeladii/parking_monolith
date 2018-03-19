@@ -1,5 +1,5 @@
 CREATE TABLE role (
-  id_role SERIAL,
+  id SERIAL,
   type VARCHAR NOT NULL ,
-  PRIMARY KEY (id_role)
+  PRIMARY KEY (id)
 );

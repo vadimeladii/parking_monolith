@@ -43,6 +43,10 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(AUTH_WHITELIST).permitAll()
                 .antMatchers(HttpMethod.POST, "/user/login").permitAll()
+//                test start
+                .antMatchers( "/parking-lot").permitAll()
+                .antMatchers( "/parking-lot/*").permitAll()
+//                test end
                 .and()
                 .authorizeRequests()
                 .anyRequest().authenticated()

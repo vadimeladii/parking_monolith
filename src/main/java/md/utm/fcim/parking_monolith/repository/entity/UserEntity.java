@@ -11,15 +11,10 @@ import java.util.Set;
  * Created by veladii on 03/18/2018
  */
 @Entity
-@Table(name = "users")
+@Table(name = "`user`")
 @Getter
 @Setter
-public class UserEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_user")
-    private Long idUser;
+public class UserEntity extends AbstractEntity {
 
     private String username;
 

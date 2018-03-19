@@ -1,7 +1,5 @@
 package md.utm.fcim.parking_monolith.business.converter;
 
-import com.google.common.base.Converter;
-import lombok.RequiredArgsConstructor;
 import md.utm.fcim.parking_monolith.business.dto.User;
 import md.utm.fcim.parking_monolith.repository.entity.UserEntity;
 import org.springframework.stereotype.Component;
@@ -12,15 +10,18 @@ import java.util.stream.Collectors;
  * Created by veladii on 03/18/2018
  */
 @Component
-@RequiredArgsConstructor
-public class UserConverter extends Converter<User, UserEntity> {
+public class UserConverter extends AbstractConverter<User, UserEntity> {
 
     private final RoleConverter roleConverter;
 
+    public UserConverter(RoleConverter roleConverter) {
+        super(User::new, UserEntity::new);
+        this.roleConverter = roleConverter;
+    }
+
     @Override
     protected UserEntity doForward(User dto) {
-        UserEntity entity = new UserEntity();
-        entity.setIdUser(dto.getIdUser());
+        UserEntity entity = super.doForward(dto);
         entity.setPassword(dto.getPassword());
         entity.setUsername(dto.getUsername());
         entity.setRoles(
@@ -34,8 +35,7 @@ public class UserConverter extends Converter<User, UserEntity> {
 
     @Override
     protected User doBackward(UserEntity entity) {
-        User dto = new User();
-        dto.setIdUser(entity.getIdUser());
+        User dto = super.doBackward(entity);
         dto.setUsername(entity.getUsername());
         dto.setPassword(entity.getPassword());
         dto.setRoles(

@@ -1,0 +1,1 @@
+INSERT INTO "user"(username, password, balance) VALUES('vadimeladii', 'pass', 100);
