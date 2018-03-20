@@ -31,5 +31,5 @@ after_success:
    #PARKING_MONOLITH
   - export PARKING_MONOLITH=vadimeladii7/pakring_monolith
   - docker build -t $PARKING_MONOLITH:$COMMIT ./
-  - docker tag $PARKING_MONOLITH:$COMMIT PARKING_MONOLITH:$TAG
+  - docker tag $PARKING_MONOLITH:$COMMIT $PARKING_MONOLITH:$TAG
   - docker push $PARKING_MONOLITH
