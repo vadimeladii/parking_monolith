@@ -4,6 +4,7 @@ import md.utm.fcim.parking_monolith.business.dto.Token;
 import md.utm.fcim.parking_monolith.business.dto.User;
 import md.utm.fcim.parking_monolith.webservice.view.UserSimpleView;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -15,4 +16,8 @@ public interface UserBusiness {
     Optional<Token> login(UserSimpleView view);
 
     User create(User dto);
+
+    List<User> retrieve();
+
+    Optional<User> retrieveById(Long id);
 }
