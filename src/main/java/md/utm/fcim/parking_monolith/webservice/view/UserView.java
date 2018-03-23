@@ -1,6 +1,7 @@
 package md.utm.fcim.parking_monolith.webservice.view;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
@@ -10,6 +11,7 @@ import java.math.BigDecimal;
  */
 @Getter
 @Setter
+@NoArgsConstructor
 public class UserView extends AbstractView {
 
     private static final long serialVersionUID = 4069216647909045612L;

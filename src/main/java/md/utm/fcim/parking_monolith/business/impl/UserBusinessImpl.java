@@ -16,8 +16,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Created by veladii on 03/18/2018
@@ -50,6 +52,19 @@ public class UserBusinessImpl implements UserBusiness {
     @Transactional
     public User create(User dto) {
         return converter.reverse().convert(repository.save(converter.convert(buildDto(dto))));
+    }
+
+    @Override
+    public List<User> retrieve() {
+        return repository.findAll()
+                .stream()
+                .map(converter.reverse()::convert)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public Optional<User> retrieveById(Long id) {
+        return repository.findById(id).map(converter.reverse()::convert);
     }
 
     private User buildDto(User dto) {
