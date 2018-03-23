@@ -13,4 +13,6 @@ public interface UserBusiness {
     Optional<User> findByUsername(String username);
 
     Optional<Token> login(UserSimpleView view);
+
+    User create(User dto);
 }

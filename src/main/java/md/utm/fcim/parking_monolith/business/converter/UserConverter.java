@@ -24,6 +24,8 @@ public class UserConverter extends AbstractConverter<User, UserEntity> {
         UserEntity entity = super.doForward(dto);
         entity.setPassword(dto.getPassword());
         entity.setUsername(dto.getUsername());
+        entity.setEmail(dto.getEmail());
+        entity.setBalance(dto.getBalance());
         entity.setRoles(
                 dto.getRoles()
                         .stream()
@@ -38,6 +40,8 @@ public class UserConverter extends AbstractConverter<User, UserEntity> {
         User dto = super.doBackward(entity);
         dto.setUsername(entity.getUsername());
         dto.setPassword(entity.getPassword());
+        dto.setEmail(entity.getEmail());
+        dto.setBalance(entity.getBalance());
         dto.setRoles(
                 entity.getRoles()
                         .stream()

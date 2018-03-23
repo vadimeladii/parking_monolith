@@ -3,6 +3,7 @@ package md.utm.fcim.parking_monolith.business.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,6 +17,10 @@ public class User extends AbstractDto {
     private String username;
 
     private String password;
+
+    private String email;
+
+    private BigDecimal balance;
 
     private Set<Role> roles = new HashSet<>();
 }
