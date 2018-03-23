@@ -13,6 +13,7 @@ import md.utm.fcim.parking_monolith.webservice.view.UserSimpleView;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -53,6 +54,7 @@ public class UserBusinessImpl implements UserBusiness {
 
     private User buildDto(User dto) {
         dto.setRoles(Set.of((roleBusiness.retrieveByType(RoleType.SIMPLE).orElse(new Role(RoleType.SIMPLE.name())))));
+        dto.setBalance(BigDecimal.ZERO);
         return dto;
     }
 }
