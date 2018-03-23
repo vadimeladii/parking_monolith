@@ -2,6 +2,7 @@ package md.utm.fcim.parking_monolith.webservice;
 
 import md.utm.fcim.parking_monolith.webservice.view.TokenView;
 import md.utm.fcim.parking_monolith.webservice.view.UserSimpleView;
+import md.utm.fcim.parking_monolith.webservice.view.UserView;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -20,4 +21,9 @@ public interface UserController {
             consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.OK)
     TokenView login(@RequestBody UserSimpleView view);
+
+    @RequestMapping(method = RequestMethod.POST,
+                    produces = MediaType.APPLICATION_JSON_VALUE,
+                    consumes = MediaType.APPLICATION_JSON_VALUE)
+    UserView create(@RequestParam UserView view);
 }

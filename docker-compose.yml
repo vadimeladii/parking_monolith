@@ -1,0 +1,22 @@
+version: '2'
+services:
+# POSTGRES
+    db:
+        image: postgres:latest
+        restart: always
+        environment:
+            POSTGRES_PASSWORD: postgres
+# NODE
+    parking_monolith:
+        image: vadimeladii7/pakring_monolith:latest
+        links:
+            - db
+        depends_on:
+            - db
+        environment:
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
+            - SPRING_DATASOURCE_USERNAME=postgres
+            - SPRING_DATASOURCE_PASSWORD=postgres
+            - SPRING_FLYWAY_URL=jdbc:postgresql://db:5432/postgres
+            - SPRING_FLYWAY_USER=postgres
+            - SPRING_FLYWAY_PASSWORD=postgres

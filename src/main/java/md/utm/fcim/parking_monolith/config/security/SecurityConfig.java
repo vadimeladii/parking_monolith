@@ -46,6 +46,8 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                test start
                 .antMatchers( "/parking-lot").permitAll()
                 .antMatchers( "/parking-lot/*").permitAll()
+                .antMatchers("/user").permitAll()
+                .antMatchers("/user/*").permitAll()
 //                test end
                 .and()
                 .authorizeRequests()

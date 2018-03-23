@@ -3,6 +3,8 @@ package md.utm.fcim.parking_monolith.webservice.view;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 /**
  * Created by veladii on 03/19/2018
  */
@@ -15,4 +17,8 @@ public class UserView extends AbstractView {
     private String username;
 
     private String password;
+
+    private String email;
+
+    private BigDecimal balance;
 }
