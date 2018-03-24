@@ -1,5 +1,6 @@
 package md.utm.fcim.parking_monolith.business.impl;
 
+import com.google.common.collect.Sets;
 import lombok.RequiredArgsConstructor;
 import md.utm.fcim.parking_monolith.business.RoleBusiness;
 import md.utm.fcim.parking_monolith.business.UserBusiness;
@@ -18,7 +19,6 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -68,7 +68,7 @@ public class UserBusinessImpl implements UserBusiness {
     }
 
     private User buildDto(User dto) {
-        dto.setRoles(Set.of((roleBusiness.retrieveByType(RoleType.SIMPLE).orElse(new Role(RoleType.SIMPLE.name())))));
+        dto.setRoles(Sets.newHashSet((roleBusiness.retrieveByType(RoleType.SIMPLE).orElse(new Role(RoleType.SIMPLE.name())))));
         dto.setBalance(BigDecimal.ZERO);
         return dto;
     }

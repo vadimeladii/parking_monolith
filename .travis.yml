@@ -7,7 +7,7 @@ services:
 language: java
 
 jdk:
-  - oraclejdk9
+  - oraclejdk8
 
 os:
   - linux
