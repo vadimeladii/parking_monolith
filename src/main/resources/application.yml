@@ -8,10 +8,14 @@ spring:
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
-# Hibernate properties
+#Hibernate properties
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
+    properties:
+          hibernate:
+            dialect: org.hibernate.dialect.PostgreSQLDialect
+            temp:
+              use_jdbc_metadata_defaults: false
 #Flyway Sql Migration
   flyway:
     url: jdbc:postgresql://localhost:5432/parking_monolith
