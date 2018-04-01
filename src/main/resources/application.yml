@@ -21,3 +21,6 @@ spring:
     url: jdbc:postgresql://localhost:5432/parking_monolith
     user: postgres
     password: postgres
+notification:
+  firebase_server_key: AAAA8upDcJc:APA91bHoTyvmKhKiq0B9yKYXeuS4icnPpAeYDLjQEK5uffAF2RattLEyInp7N5FuQFFSS1cAiRxb58JdUmFFPc-mnofWtXUb0gR5nYUHBHZxO5ZTTgtP9QO3GAjpbBErU5XDEptlhLGa
+  url: https://fcm.googleapis.com/fcm/send
