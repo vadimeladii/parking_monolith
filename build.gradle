@@ -46,4 +46,7 @@ dependencies {
 
 //    JWT
     compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.7.0'
+
+    //json-simple
+    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
 }
