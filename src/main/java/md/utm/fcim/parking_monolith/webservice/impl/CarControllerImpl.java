@@ -1,14 +1,13 @@
 package md.utm.fcim.parking_monolith.webservice.impl;
 
 import lombok.RequiredArgsConstructor;
-import md.utm.fcim.parking_monolith.business.CameraBusiness;
-import md.utm.fcim.parking_monolith.business.dto.Camera;
-import md.utm.fcim.parking_monolith.webservice.CameraController;
-import md.utm.fcim.parking_monolith.webservice.converter.CameraViewConverter;
-import md.utm.fcim.parking_monolith.webservice.view.CameraView;
+import md.utm.fcim.parking_monolith.business.CarBusiness;
+import md.utm.fcim.parking_monolith.business.dto.Car;
+import md.utm.fcim.parking_monolith.webservice.CarController;
+import md.utm.fcim.parking_monolith.webservice.converter.CarViewConverter;
+import md.utm.fcim.parking_monolith.webservice.view.CarView;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -16,36 +15,36 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
- * Created by veladii on 04/01/2018
+ * Created by veladii on 04/04/2018
  */
 @RestController
 @RequiredArgsConstructor
-public class CameraControllerImpl implements CameraController {
+public class CarControllerImpl implements CarController {
 
-    private final CameraBusiness business;
-    private final CameraViewConverter converter;
+    private final CarBusiness business;
+    private final CarViewConverter converter;
 
     @Override
-    public ResponseEntity<CameraView> create(CameraView view) {
+    public ResponseEntity<CarView> create(CarView view) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(converter.reverse().convert(business.create(converter.convert(view))));
     }
 
-    public ResponseEntity<List<CameraView>> retrieve() {
-        List<Camera> parkingLots = business.retrieve();
+    @Override
+    public ResponseEntity<List<CarView>> retrieve() {
+        List<Car> parkingLots = business.retrieve();
         return ResponseEntity
                 .status(parkingLots.isEmpty() ? HttpStatus.NO_CONTENT : HttpStatus.OK)
                 .body(parkingLots
                         .stream()
                         .map(converter.reverse()::convert)
                         .collect(Collectors.toList()));
-
     }
 
     @Override
-    public ResponseEntity<CameraView> retrieveById(Long id) {
-        Optional<Camera> parkingLot = business.retrieveById(id);
+    public ResponseEntity<CarView> retrieveById(Long id) {
+        Optional<Car> parkingLot = business.retrieveById(id);
         return ResponseEntity
                 .status(parkingLot.isPresent() ? HttpStatus.OK : HttpStatus.NO_CONTENT)
                 .body(parkingLot
