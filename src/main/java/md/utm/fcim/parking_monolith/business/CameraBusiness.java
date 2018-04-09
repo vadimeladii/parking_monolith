@@ -13,5 +13,7 @@ public interface CameraBusiness {
 
     Optional<Camera> retrieveById(Long id);
 
+    Optional<Camera> retrieveByNumber(String number);
+
     Camera create(Camera dto);
 }

@@ -22,5 +22,5 @@ public interface NotificationController {
     @RequestMapping(value = "/send/{parkingId}",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<Void> send(@PathVariable("parkingId") Long parkingId);
+    ResponseEntity<?> send(@PathVariable("parkingId") Long parkingId);
 }

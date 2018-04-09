@@ -52,6 +52,10 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/notification/send/*").permitAll()
                 .antMatchers("/camera").permitAll()
                 .antMatchers("/camera/*").permitAll()
+                .antMatchers("/car").permitAll()
+                .antMatchers("/car/*").permitAll()
+                .antMatchers("/entry/increment").permitAll()
+                .antMatchers("/entry/decrement*").permitAll()
 //                test end
                 .and()
                 .authorizeRequests()

@@ -12,4 +12,8 @@ public interface ParkingLotBusiness {
     List<ParkingLot> retrieve();
 
     Optional<ParkingLot> retrieveById(Long id);
+
+    Optional<ParkingLot> increment(Long id);
+
+    Optional<ParkingLot> decrement(Long id);
 }

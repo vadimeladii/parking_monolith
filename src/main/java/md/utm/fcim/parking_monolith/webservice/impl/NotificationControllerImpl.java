@@ -27,7 +27,8 @@ public class NotificationControllerImpl implements NotificationController {
     }
 
     @Override
-    public ResponseEntity<Void> send(Long parkingId) {
-        return ResponseEntity.ok(business.send(parkingId));
+    public ResponseEntity<?> send(Long parkingId) {
+        business.send(parkingId);
+        return ResponseEntity.ok().build();
     }
 }

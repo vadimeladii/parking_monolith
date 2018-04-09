@@ -13,7 +13,6 @@ import java.util.List;
 /**
  * Created by veladii on 9/1/17.
  */
-@RestController
 @RequestMapping(value = "/user")
 public interface UserController {
 

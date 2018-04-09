@@ -38,6 +38,13 @@ public class CameraBusinessImpl implements CameraBusiness {
     }
 
     @Override
+    public Optional<Camera> retrieveByNumber(String number) {
+        return repository
+                .findByNumber(number)
+                .map(converter.reverse()::convert);
+    }
+
+    @Override
     public Camera create(Camera dto) {
         return converter.reverse().convert(repository.save(converter.convert(dto)));
     }
