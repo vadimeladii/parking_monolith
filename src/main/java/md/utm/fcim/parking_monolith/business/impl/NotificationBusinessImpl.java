@@ -31,13 +31,12 @@ public class NotificationBusinessImpl implements NotificationBusiness {
     }
 
     @Override
-    public Void send(Long parkingId) {
+    public void send(Long parkingId) {
         repository.findByParkingLotEntity(parkingLotRepository.findById(parkingId).orElse(null))
                 .forEach(parking -> {
                     pushNotificationsService.sendNotification(
                             parking.getToken(),
                             parking.getParkingLotEntity().getAvailablePlaces());
                 });
-        return null;
     }
 }

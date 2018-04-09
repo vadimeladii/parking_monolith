@@ -9,5 +9,5 @@ public interface NotificationBusiness {
 
     Notification create(Notification dto);
 
-    Void send(Long parkingId);
+    void send(Long parkingId);
 }
