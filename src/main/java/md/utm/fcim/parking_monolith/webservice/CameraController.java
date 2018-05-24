@@ -3,10 +3,7 @@ package md.utm.fcim.parking_monolith.webservice;
 import md.utm.fcim.parking_monolith.webservice.view.CameraView;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,16 +13,18 @@ import java.util.List;
 @RequestMapping(value = "/camera")
 public interface CameraController {
 
+    @CrossOrigin
     @RequestMapping(
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<CameraView> create(@RequestParam CameraView view);
+    ResponseEntity<CameraView> create(CameraView view);
 
+    @CrossOrigin
     @RequestMapping(method = RequestMethod.GET)
     ResponseEntity<List<CameraView>> retrieve();
 
+    @CrossOrigin
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     ResponseEntity<CameraView> retrieveById(@PathVariable("id") Long id);
-
 }

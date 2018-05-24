@@ -13,15 +13,18 @@ import java.util.List;
 @RequestMapping(value = "/car")
 public interface CarController {
 
+    @CrossOrigin
     @RequestMapping(
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<CarView> create(@RequestParam CarView view);
+    ResponseEntity<CarView> create(CarView view);
 
+    @CrossOrigin
     @RequestMapping(method = RequestMethod.GET)
     ResponseEntity<List<CarView>> retrieve();
 
+    @CrossOrigin
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     ResponseEntity<CarView> retrieveById(@PathVariable("id") Long id);
 }

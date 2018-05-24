@@ -4,6 +4,7 @@ import md.utm.fcim.parking_monolith.repository.entity.NotificationEntity;
 import md.utm.fcim.parking_monolith.repository.entity.ParkingLotEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
@@ -11,4 +12,6 @@ import java.util.stream.Stream;
  */
 public interface NotificationRepository extends JpaRepository<NotificationEntity, Long> {
     Stream<NotificationEntity> findByParkingLotEntity(ParkingLotEntity entity);
+
+    Optional<NotificationEntity> findByToken(String token);
 }
