@@ -8,7 +8,6 @@ import md.utm.fcim.parking_monolith.webservice.converter.CameraViewConverter;
 import md.utm.fcim.parking_monolith.webservice.view.CameraView;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;

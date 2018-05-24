@@ -44,8 +44,8 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(AUTH_WHITELIST).permitAll()
                 .antMatchers(HttpMethod.POST, "/user/login").permitAll()
 //                test start
-                .antMatchers( "/parking-lot").permitAll()
-                .antMatchers( "/parking-lot/*").permitAll()
+                .antMatchers("/parking-lot").permitAll()
+                .antMatchers("/parking-lot/*").permitAll()
                 .antMatchers("/user").permitAll()
                 .antMatchers("/user/*").permitAll()
                 .antMatchers("/notification").permitAll()
@@ -64,7 +64,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilterBefore(statelessAuthFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
-    private PasswordEncoder bCryptPasswordEncoder(){
+    private PasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 

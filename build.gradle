@@ -18,6 +18,10 @@ buildscript {
     }
 }
 
+//bootJar {
+//    launchScript()
+//}
+
 repositories {
     mavenCentral()
 }

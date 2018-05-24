@@ -11,11 +11,11 @@ import org.springframework.data.repository.query.Param;
  */
 public interface ParkingLotRepository extends JpaRepository<ParkingLotEntity, Long> {
 
-    @Modifying
+    @Modifying(clearAutomatically = true)
     @Query(value = "UPDATE ParkingLotEntity p SET p.availablePlaces = (p.availablePlaces + 1) WHERE p.id = :id and p.availablePlaces < p.totalPlaces")
     void increment(@Param("id") Long id);
 
-    @Modifying
+    @Modifying(clearAutomatically = true)
     @Query(value = "UPDATE ParkingLotEntity p SET p.availablePlaces = (p.availablePlaces - 1) WHERE p.id = :id and p.availablePlaces > 0")
     void decrement(@Param("id") Long id);
 }

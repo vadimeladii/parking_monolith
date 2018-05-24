@@ -14,5 +14,5 @@ public class NotificationView extends AbstractView {
 
     private String token;
 
-    private ParkingLotView parkingLotView;
+    private ParkingLotView parkingLot;
 }

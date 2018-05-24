@@ -2,7 +2,6 @@ package md.utm.fcim.parking_monolith.business.impl;
 
 import lombok.RequiredArgsConstructor;
 import md.utm.fcim.parking_monolith.business.CameraBusiness;
-import md.utm.fcim.parking_monolith.business.CarBusiness;
 import md.utm.fcim.parking_monolith.business.EntryBusiness;
 import md.utm.fcim.parking_monolith.business.ParkingLotBusiness;
 import md.utm.fcim.parking_monolith.business.dto.Camera;
@@ -18,7 +17,6 @@ import org.springframework.stereotype.Service;
 public class EntryBusinessImpl implements EntryBusiness {
 
     private final CameraBusiness cameraBusiness;
-    private final CarBusiness carBusiness;
     private final ParkingLotBusiness parkingLotBusiness;
     private final NotificationBusinessImpl notificationBusiness;
 
@@ -31,8 +29,7 @@ public class EntryBusinessImpl implements EntryBusiness {
                 .map(ParkingLot::getId)
                 .flatMap(parkingLotBusiness::increment)
                 .get();
-        if (parkingLot.getAvailablePlaces() < 10)
-            notificationBusiness.send(parkingLot.getId());
+        sendNotification(parkingLot);
     }
 
     @Override
@@ -44,6 +41,10 @@ public class EntryBusinessImpl implements EntryBusiness {
                 .map(ParkingLot::getId)
                 .flatMap(parkingLotBusiness::decrement)
                 .get();
+        sendNotification(parkingLot);
+    }
+
+    private void sendNotification(ParkingLot parkingLot) {
         if (parkingLot.getAvailablePlaces() < 10)
             notificationBusiness.send(parkingLot.getId());
     }
