@@ -36,7 +36,6 @@ INSERT INTO camera (id, number, id_parking) VALUES (12, 'test12', 12);
 INSERT INTO camera (id, number, id_parking) VALUES (13, 'test13', 13);
 
 INSERT INTO car (id, number, id_user) VALUES (3, 'test3', 3);
-INSERT INTO car (id, number, id_user) VALUES (2, 'test2', 2);
 INSERT INTO car (id, number, id_user) VALUES (6, 'test6', 6);
 INSERT INTO car (id, number, id_user) VALUES (7, 'test7', 7);
 INSERT INTO car (id, number, id_user) VALUES (8, 'test8', 8);
