@@ -15,4 +15,6 @@ public class ParkingLot extends AbstractDto {
     private Integer totalPlaces;
 
     private Integer availablePlaces;
+
+    private Integer surface;
 }

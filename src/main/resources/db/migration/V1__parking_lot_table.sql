@@ -3,5 +3,6 @@ CREATE TABLE parking_lot (
   name VARCHAR NOT NULL ,
   total_places INTEGER NOT NULL ,
   available_places INTEGER NOT NULL ,
+  surface INTEGER NOT NULL,
   CONSTRAINT pk_id_parking PRIMARY KEY (id)
 );

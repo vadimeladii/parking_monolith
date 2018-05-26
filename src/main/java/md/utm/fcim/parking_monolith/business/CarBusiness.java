@@ -14,4 +14,6 @@ public interface CarBusiness {
     Optional<Car> retrieveById(Long id);
 
     Car create(Car dto);
+
+    Boolean exist(String carNumber);
 }

@@ -20,6 +20,7 @@ public class ParkingLotViewConverter extends AbstractViewConverter<ParkingLotVie
         dto.setName(view.getName());
         dto.setTotalPlaces(view.getTotalPlaces());
         dto.setAvailablePlaces(view.getAvailablePlaces());
+        dto.setSurface(view.getSurface());
         return dto;
     }
 
@@ -29,6 +30,7 @@ public class ParkingLotViewConverter extends AbstractViewConverter<ParkingLotVie
         view.setName(dto.getName());
         view.setTotalPlaces(dto.getTotalPlaces());
         view.setAvailablePlaces(dto.getAvailablePlaces());
+        view.setSurface(dto.getSurface());
         return view;
     }
 }
