@@ -20,6 +20,7 @@ public class ParkingLotConverter extends AbstractConverter<ParkingLot, ParkingLo
         entity.setName(dto.getName());
         entity.setTotalPlaces(dto.getTotalPlaces());
         entity.setAvailablePlaces(dto.getAvailablePlaces());
+        entity.setSurface(dto.getSurface());
         return entity;
     }
 
@@ -29,6 +30,7 @@ public class ParkingLotConverter extends AbstractConverter<ParkingLot, ParkingLo
         dto.setName(entity.getName());
         dto.setTotalPlaces(entity.getTotalPlaces());
         dto.setAvailablePlaces(entity.getAvailablePlaces());
+        dto.setSurface(entity.getSurface());
         return dto;
     }
 }

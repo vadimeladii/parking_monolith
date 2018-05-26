@@ -17,4 +17,6 @@ public class ParkingLotView extends AbstractView {
     private Integer totalPlaces;
 
     private Integer availablePlaces;
+
+    private Integer surface;
 }

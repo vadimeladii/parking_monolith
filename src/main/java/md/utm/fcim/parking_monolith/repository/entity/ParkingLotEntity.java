@@ -27,4 +27,6 @@ public class ParkingLotEntity extends AbstractEntity {
     private Integer totalPlaces;
 
     private Integer availablePlaces;
+
+    private Integer surface;
 }
