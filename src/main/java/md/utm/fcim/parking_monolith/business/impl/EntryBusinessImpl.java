@@ -8,7 +8,13 @@ import md.utm.fcim.parking_monolith.business.ParkingLotBusiness;
 import md.utm.fcim.parking_monolith.business.dto.Camera;
 import md.utm.fcim.parking_monolith.business.dto.Entry;
 import md.utm.fcim.parking_monolith.business.dto.ParkingLot;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * Created by veladii on 04/09/2018
@@ -31,7 +37,10 @@ public class EntryBusinessImpl implements EntryBusiness {
                     .map(Camera::getParkingLot)
                     .map(ParkingLot::getId)
                     .flatMap(parkingLotBusiness::increment)
-                    .ifPresent(this::sendNotification);
+                    .ifPresent(p -> {
+                        this.httpPostRequest(entry.getCarNumber());
+                        this.sendNotification(p);
+                    });
         }
     }
 
@@ -44,8 +53,26 @@ public class EntryBusinessImpl implements EntryBusiness {
                     .map(Camera::getParkingLot)
                     .map(ParkingLot::getId)
                     .flatMap(parkingLotBusiness::decrement)
-                    .ifPresent(this::sendNotification);
-        }
+                    .ifPresent(p -> {
+                        this.httpPostRequest(entry.getCarNumber());
+                        this.sendNotification(p);
+                    });        }
+    }
+
+    private void httpPostRequest(String carNumber) {
+        String url = "http://167.99.18.104/gateSocket/";
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+
+        MultiValueMap<String, String> map= new LinkedMultiValueMap<>();
+        map.add("plate", carNumber);
+
+        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
+
+        restTemplate.postForEntity(url, request, Void.class);
     }
 
     private void sendNotification(ParkingLot parkingLot) {
