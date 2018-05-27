@@ -60,7 +60,7 @@ public class EntryBusinessImpl implements EntryBusiness {
     }
 
     private void httpPostRequest(String carNumber) {
-        String url = "http://167.99.18.104/gateSocket/";
+        String url = "http://167.99.18.104/gateSocket";
 
         RestTemplate restTemplate = new RestTemplate();
 
