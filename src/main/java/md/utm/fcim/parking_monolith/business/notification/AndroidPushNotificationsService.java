@@ -45,14 +45,14 @@ public class AndroidPushNotificationsService {
         return restTemplate;
     }
 
-    public void sendNotification(String token, Integer counter) {
+    public void sendNotification(String token, Integer counter, String nameParkingLot) {
         JSONObject body = new JSONObject();
         body.put(TO, token);
         body.put(PRIORITY, "high");
         body.put(SOUND, "default");
 
         JSONObject notification = new JSONObject();
-        notification.put(BODY, "There are " + (counter) + " places left");
+        notification.put(BODY, nameParkingLot + " - there are " + (counter) + " places left");
         notification.put(TITLE, "PARKING");
 
         body.put(NOTIFICATION, notification);

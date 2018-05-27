@@ -45,7 +45,8 @@ public class NotificationBusinessImpl implements NotificationBusiness {
                 .forEach(parking -> {
                             pushNotificationsService.sendNotification(
                                     parking.getToken(),
-                                    parking.getParkingLotEntity().getAvailablePlaces());
+                                    parking.getParkingLotEntity().getAvailablePlaces(),
+                                    parking.getParkingLotEntity().getName());
                         }
                 );
     }
